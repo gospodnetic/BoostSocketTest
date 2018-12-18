@@ -5,6 +5,25 @@
 #include <boost/array.hpp>
 
 using boost::asio::ip::tcp;
+
+class Caller
+{
+  public:
+    initialize()
+    {
+        *m_resolver = resolver(m_io_service);
+    }
+
+    boost::asio::io_service     m_io_service;
+    tcp::resolver*              m_resolver;
+    tcp::resolver::query*       m_query;
+    tcp::resolver::iterator     m_end;
+
+    tcp::socket*                m_socket;
+    boost::system::error_code   m_error;
+
+}
+
 int main(int argc, char* argv[])
 {
     try
